@@ -1,0 +1,18 @@
+<?php
+require_once __DIR__ . '/includes/bootstrap.php';
+
+session_start();
+require 'includes/db.php';
+
+if (!isset($_SESSION['user_id'])) {
+  exit;
+}
+
+$id = $_POST['id'] ?? null;
+if ($id) {
+  $stmt = $db->prepare("UPDATE notifications SET is_read = TRUE WHERE id = ? AND user_id = ?");
+  $stmt->execute([$id, $_SESSION['user_id']]);
+}
+
+header("Location: notifications.php");
+exit;

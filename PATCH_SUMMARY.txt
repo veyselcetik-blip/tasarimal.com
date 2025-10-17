@@ -1,0 +1,26 @@
+{
+  "created_files": [
+    "includes/security.php",
+    "includes/upload_helper.php",
+    "assets/css/styles.css",
+    "assets/js/ui_helpers.js"
+  ],
+  "modified_files": [
+    "includes/functions.php",
+    "includes/PHPMailer/SMTP.php",
+    "add-portfolio-item.php",
+    "create-project.php",
+    "edit-profile.php",
+    "upload-final.php",
+    "upload.php",
+    "includes/header.php"
+  ],
+  "notes": [
+    "Automated changes made. Some replacements of md5/sha1 were done to call safe_hash().",
+    "safe_verify() in includes/security.php will accept legacy md5/sha1 hashes for login verification; recommend migrating users to password_hash by rehashing on successful login.",
+    "Files that used $_FILES but did not have move_uploaded_file were updated to include security.php to give developers access to secure_upload(). You must update the upload flow to use secure_upload() and handle returned path/DB storage.",
+    "Header files (if found) had CSS/JS includes added so the new stylesheet and UI helpers load.",
+    "This is a best-effort automated pass. Manual review is still required for logic-specific secure fixes (e.g., replacing inline SQL with prepared statements).",
+    "Next steps recommended in order: 1) Replace all raw SQL concatenation with prepared statements. 2) Use safe_verify() for authentication and rehash to password_hash where applicable. 3) Replace upload flows to call secure_upload() and validate usage. 4) Implement displaying competition winners in the project view by querying DB for winner and showing winner badge and winner presentation at top of submissions."
+  ]
+}

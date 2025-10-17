@@ -1,0 +1,20 @@
+{
+  "injected_files_count": 91,
+  "winner_injected_count": 1,
+  "files_warned_for_sql": 0,
+  "created_files": [
+    "includes/bootstrap.php",
+    "includes/winner_snippet.php",
+    "includes/payments.php",
+    "includes/notifications.php",
+    "subscribe.php",
+    "webhook.php",
+    "templates/winner_display.php"
+  ],
+  "notes": [
+    "Automated: ensured includes/bootstrap.php is included in PHP files, created payment & notification stubs, injected winner snippet into view/project files when possible.",
+    "Automated: added a top-of-file warning comment for files containing mysql_query/mysqli_query recommending prepared statements.",
+    "Remaining manual work: replace raw SQL concatenations with prepared statements (automated edits not safe enough), adapt winner query to actual DB schema, integrate secure_upload() into upload flows, test subscription checkout with real provider, comprehensively review role/permission checks.",
+    "Files modified are in the patched zip. Run manual tests in a development environment before deploying to production."
+  ]
+}
